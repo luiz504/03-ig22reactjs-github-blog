@@ -1,3 +1,3 @@
 export function App() {
-  return <>Hello Word</>
+  return <>Hello Word 2</>
 }

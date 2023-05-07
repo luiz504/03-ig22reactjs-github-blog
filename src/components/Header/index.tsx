@@ -1,4 +1,3 @@
-import React from 'react'
 import { styled } from 'styled-components'
 
 import { ReactComponent as Logo } from '~/assets/logo.svg'
@@ -22,7 +21,7 @@ const HeaderContainer = styled.header`
   }
 `
 
-export const Header: React.FC = () => (
+export const Header = () => (
   <HeaderContainer>
     <Logo />
     <h1>GITHUB BLOG</h1>

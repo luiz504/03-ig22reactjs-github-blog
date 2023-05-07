@@ -1,8 +1,9 @@
-import { SubHeaderBase } from '~/components/SubHeader'
+import { CardProfile } from './components/CardProfile'
+
 import { ContainerHome } from './styles'
 
 export const Home = () => (
   <ContainerHome>
-    <SubHeaderBase />
+    <CardProfile />
   </ContainerHome>
 )

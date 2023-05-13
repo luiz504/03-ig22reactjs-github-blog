@@ -23,6 +23,9 @@ export const CardProfileContainer = styled(SubHeaderBase)`
 `
 
 export const InfoSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   .row-title-redirect {
     display: flex;
     justify-content: space-between;
@@ -57,7 +60,9 @@ export const InfoSection = styled.div`
 
   .row-more-info {
     display: flex;
+    flex-wrap: wrap;
     gap: 1.5rem;
+    margin-top: auto;
 
     li {
       display: flex;

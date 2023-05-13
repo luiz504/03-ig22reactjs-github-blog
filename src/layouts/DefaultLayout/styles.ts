@@ -8,5 +8,6 @@ export const ContainerDefaultLayout = styled.div`
 
 export const Content = styled.main`
   width: 100%;
-  max-width: 54rem;
+
+  padding: 0 1rem 1rem 1rem;
 `

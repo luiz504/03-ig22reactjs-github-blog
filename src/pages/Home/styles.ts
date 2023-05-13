@@ -1,16 +1,33 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+
+export const HomeContainer = styled.div`
+  max-width: 80rem;
+  margin: 0 auto;
+
+  @media (max-width: 1440px) {
+    max-width: 54rem;
+  }
+`
 
 export const IssuesList = styled.section`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+
   gap: 2rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: 1440px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
 `
 
-export const IssueCard = styled.article`
+export const IssueCard = styled(Link)`
+  text-decoration: none;
   padding: 2rem;
   border-radius: 18px;
   background: ${({ theme }) => theme['base-post']};

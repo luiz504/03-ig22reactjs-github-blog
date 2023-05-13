@@ -12,6 +12,9 @@ export const GlobalStyles = styled.createGlobalStyle`
     background-color: ${({ theme }) => theme['base-background']};
     color: ${({ theme }) => theme['base-text']};
     -webkit-font-smoothing: antialiased;
+  }
+  html,
+  body {
     ${scrollbarDark}
   }
 

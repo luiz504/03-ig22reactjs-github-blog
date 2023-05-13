@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { CardProfile } from './components/CardProfile'
 import { SearchSection } from './components/SearchSection'
 
-import { IssuesList, IssueCard } from './styles'
+import { HomeContainer, IssuesList, IssueCard } from './styles'
 
 type Issue = {
   id: string
@@ -18,14 +18,14 @@ export const Home = () => {
   )
 
   return (
-    <div>
+    <HomeContainer>
       <CardProfile />
 
       <SearchSection />
 
       <IssuesList>
         {issues.map((issue) => (
-          <IssueCard key={issue.id}>
+          <IssueCard key={issue.id} to="/issue/x">
             <header>
               <strong>JavaScript data types and data structures </strong>
               <time> 1 day ago</time>
@@ -46,6 +46,6 @@ export const Home = () => {
           </IssueCard>
         ))}
       </IssuesList>
-    </div>
+    </HomeContainer>
   )
 }

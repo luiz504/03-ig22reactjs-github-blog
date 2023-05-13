@@ -13,12 +13,19 @@
     "commit": "commit"
   },
   "lint-staged": {
-    "*.{ts,tsx,html,css}": "eslint --max-warnings=0",
-    "*.json": "prettier --write"
+    "*.{ts,tsx}": "eslint --max-warnings=0",
+    "*.{json,html,css}": "prettier --write"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-query": "^3.39.3",
+    "react-router-dom": "^6.11.1",
+    "styled-components": "6.0.0-rc.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.3",

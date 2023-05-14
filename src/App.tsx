@@ -8,7 +8,7 @@ import { Router } from './routes'
 
 import { GlobalStyles } from './styles/global'
 import { defaultTheme } from './styles/themes/defaultTheme'
-import { UserContextProvider } from './contexts/User'
+import { UserContextProvider } from './contexts/user'
 
 export function App() {
   return (

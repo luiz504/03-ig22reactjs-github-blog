@@ -8,7 +8,9 @@ import { Router } from './routes'
 
 import { GlobalStyles } from './styles/global'
 import { defaultTheme } from './styles/themes/defaultTheme'
+
 import { UserContextProvider } from './contexts/user'
+import { IssuesContextProvider } from './contexts/issues'
 
 export function App() {
   return (
@@ -16,7 +18,9 @@ export function App() {
       <BrowserRouter>
         <QueryClientProvider client={queryclient}>
           <UserContextProvider>
-            <Router />
+            <IssuesContextProvider>
+              <Router />
+            </IssuesContextProvider>
           </UserContextProvider>
         </QueryClientProvider>
       </BrowserRouter>

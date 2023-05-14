@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { useContext } from 'react'
-import { UserContext } from './index'
+import { UserContext } from '.'
 
 export const useUserContext = () => {
   const context = useContext(UserContext)

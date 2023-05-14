@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { IssuesContext } from './index'
+import { IssuesContext } from '.'
 
 export const useIssuesContext = () => {
   const context = useContext(IssuesContext)

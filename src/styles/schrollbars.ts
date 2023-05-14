@@ -5,7 +5,7 @@ export const scrollbarDark = css`
   scrollbar-width: thin;
   -webkit-overflow-scrolling: touch;
   //prettier-ignore
-  scrollbar-color: ${({ theme }) => theme.blue} ${({ theme }) =>
+  scrollbar-color: ${({ theme }) => theme['base-label']} ${({ theme }) =>
     theme['base-background']} ;
 
   &::-webkit-scrollbar {
@@ -18,7 +18,7 @@ export const scrollbarDark = css`
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
   }
   &::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.blue};
+    background: ${({ theme }) => theme['base-label']};
     border-radius: 4px;
   }
 `

@@ -1,4 +1,3 @@
-import { CardProfileContainer, InfoSection } from './styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import {
@@ -6,10 +5,14 @@ import {
   faUserGroup,
   faArrowUpRightFromSquare,
 } from '@fortawesome/free-solid-svg-icons'
-import { useUserContext } from '~/contexts/User'
+
+import { useUserContext } from '~/contexts/user/useUserContext'
+
+import { CardProfileContainer, InfoSection } from './styles'
 
 export const CardProfile = () => {
   const { userData } = useUserContext()
+
   return (
     <CardProfileContainer>
       <div className="placeholder-thumb">

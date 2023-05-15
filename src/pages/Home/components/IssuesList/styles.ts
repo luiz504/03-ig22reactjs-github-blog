@@ -15,6 +15,11 @@ export const IssuesContainer = styled.section`
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
+
+  .loading-box-placeholder {
+    height: 16rem;
+    border-radius: 18px;
+  }
 `
 
 export const IssueCard = styled(Link)`

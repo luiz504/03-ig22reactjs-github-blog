@@ -5,6 +5,12 @@ export const ContainerCardIssueResume = styled(SubHeaderBase)`
   display: flex;
   flex-direction: column;
   padding: 2rem;
+
+  max-width: 80rem;
+
+  @media (max-width: 1440px) {
+    max-width: 54rem;
+  }
   > div {
     display: flex;
   }
@@ -12,6 +18,7 @@ export const ContainerCardIssueResume = styled(SubHeaderBase)`
   .row-1 {
     justify-content: space-between;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
     > a {
       display: flex;
       align-items: center;
@@ -25,6 +32,11 @@ export const ContainerCardIssueResume = styled(SubHeaderBase)`
       font-weight: bold;
       text-decoration: none;
       outline: 2px solid transparent;
+
+      > svg {
+        font-size: 0.75rem;
+        margin-top: -2px;
+      }
     }
   }
 
@@ -35,9 +47,11 @@ export const ContainerCardIssueResume = styled(SubHeaderBase)`
   }
 
   .row-2 {
-    gap: 2rem;
+    gap: 0 2rem;
+    flex-wrap: wrap;
     > div,
-    a {
+    a,
+    time {
       padding: 0.25rem 0;
       display: flex;
       align-items: center;
@@ -46,10 +60,29 @@ export const ContainerCardIssueResume = styled(SubHeaderBase)`
       color: ${({ theme }) => theme['base-span']};
       > svg {
         color: ${({ theme }) => theme['base-label']};
+        margin-top: -2px;
       }
       > span {
         line-height: 1.6;
+        white-space: nowrap;
       }
     }
+    div,
+    time {
+      cursor: default;
+    }
+  }
+
+  .loading-box-placeholder.link {
+    height: 1.6rem;
+    width: 8rem;
+  }
+  .loading-box-placeholder.strong {
+    height: calc(1rem * 1.3);
+    margin-bottom: 0.5rem;
+  }
+  .loading-box-placeholder.row-2 {
+    width: 100%;
+    height: calc(1rem * 1.6);
   }
 `

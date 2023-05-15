@@ -9,7 +9,7 @@ export const Router = () => {
     <Routes>
       <Route element={<DefaultLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/issue/:issueId" element={<Issue />} />
+        <Route path="/issue/:issueNumber" element={<Issue />} />
       </Route>
     </Routes>
   )

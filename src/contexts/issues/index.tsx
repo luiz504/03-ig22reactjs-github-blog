@@ -6,6 +6,7 @@ import { useUserContext } from '../user/useUserContext'
 
 type Issue = {
   id: string | number
+  number: number
   title: string
   body: string | null
   created_at: string

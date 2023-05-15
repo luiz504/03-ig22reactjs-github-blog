@@ -1,15 +1,22 @@
-Sobre o desafio
+About the challenge
 
-Nesse desafio, você vai desenvolver uma aplicação que utilizará da API do GitHub para buscar issues de um repositório, dados do seu perfil e exibir elas como um blog.
+In this challenge, you will develop an application that uses the GitHub API to fetch issues from a repository, data from your profile, and display them as a blog.
 
-- Listagem do seu perfil com imagem, número de seguidores, nome e outras informações disponíveis pela API do GitHub.
-- Listar e filtrar todas as issues do repositório com um pequeno resumo do conteúdo dela.
-- Criar uma página para exibir um post (issue) completo.
+- [x] Display your profile information, including image, number of followers, name, and other available information from the GitHub API.
+- [x] List and filter all issues from the repository, providing a brief summary of their content.
+- [x] Create a page to display a complete post (issue).
 
-Apesar de serem poucas funcionalidades, você vai precisar relembrar conceitos como:
+Although there are few features, you will need to revisit concepts such as:
 
 - Fetch / Axios
-- Roteamento e React Router DOM
-- Formulários
+- Routing and React Router DOM
+- Forms
 
-Para completar esse desafio você vai precisar fazer alguns preparativos e principalmente de algumas pesquisas para entender sobre a API do GitHub.
+To complete this challenge, you will need to make some preparations and mainly conduct research to understand the GitHub API.
+
+#### Try out
+
+```bash
+pnpn install
+pnpn run dev
+```

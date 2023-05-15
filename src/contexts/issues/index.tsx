@@ -3,6 +3,7 @@ import { useQuery } from 'react-query'
 
 import { api } from '~/libs/api'
 import { useUserContext } from '../user/useUserContext'
+import { ownerName, repoName } from '~/common'
 
 type Issue = {
   id: string | number
@@ -23,7 +24,12 @@ type IssuesContextType = {
   issues?: ISearchIssuesResponse['items']
   onChangeSearchValue: (value: string) => void
   searchValue: string
+  isLoading: boolean
+  isSuccess: boolean
+  isError: boolean
+  error: unknown
 }
+
 export const IssuesContext = createContext<IssuesContextType>(
   {} as IssuesContextType,
 )
@@ -31,19 +37,16 @@ export const IssuesContext = createContext<IssuesContextType>(
 interface IssuesContextProviderProps {
   children: ReactNode
 }
+
 export const IssuesContextProvider = ({
   children,
 }: IssuesContextProviderProps) => {
   const { userData } = useUserContext()
   const [searchValue, setSearchValue] = useState('')
 
-  const { data } = useQuery({
+  const { data, isLoading, isSuccess, isError, error } = useQuery({
     queryKey: ['issues', { user: userData?.login, searchValue }],
     queryFn: async () => {
-      const ownerName = userData?.login || 'rocketseat-education'
-      const repoName =
-        '03-igniter-challenge-github-blog' || 'reactjs-github-blog-challenge'
-
       const response = await api.get<ISearchIssuesResponse>('/search/issues', {
         params: { q: `${searchValue} repo:${ownerName}/${repoName}` },
       })
@@ -62,6 +65,10 @@ export const IssuesContextProvider = ({
     total_count: data?.total_count,
     onChangeSearchValue,
     searchValue,
+    isLoading,
+    isSuccess,
+    error,
+    isError,
   }
 
   return (

@@ -11,6 +11,21 @@ export const ContainerSearchSection = styled.section`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    > strong {
+      font-size: 1.125rem;
+      line-height: 1.6rem;
+      color: ${({ theme }) => theme['base-subtitle']};
+    }
+    > span {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: ${({ theme }) => theme['base-span']};
+    }
+    .loading-box-placeholder {
+      height: calc(0.875rem * 1.6);
+      width: 3.5rem;
+    }
   }
 
   input {

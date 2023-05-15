@@ -19,6 +19,9 @@ export const CardProfileContainer = styled(SubHeaderBase)`
       height: 100%;
       max-width: 100%;
     }
+    .loading-box-placeholder.img {
+      height: 100%;
+    }
   }
 `
 
@@ -26,6 +29,7 @@ export const InfoSection = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+
   .row-title-redirect {
     display: flex;
     justify-content: space-between;
@@ -51,11 +55,20 @@ export const InfoSection = styled.div`
 
       text-decoration: none;
     }
+
+    .loading-box-placeholder.row-title {
+      height: calc(1.5rem * 1.3);
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
   }
 
   > p {
     line-height: 1.6;
     margin-bottom: 0.5rem;
+  }
+  .loading-box-placeholder.p {
+    height: calc(1rem * 1.6 * 3);
   }
 
   .row-more-info {
@@ -94,6 +107,11 @@ export const InfoSection = styled.div`
           outline-offset: 5px;
         }
       }
+    }
+
+    .loading-box-placeholder.li {
+      height: 1.375rem;
+      width: 100%;
     }
   }
 `

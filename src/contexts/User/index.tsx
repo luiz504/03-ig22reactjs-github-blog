@@ -1,6 +1,9 @@
 import { ReactNode, createContext } from 'react'
 import { useQuery } from 'react-query'
+
 import { api } from '~/libs/api'
+
+import { ownerName } from '~/common'
 
 interface UserProfile {
   id: number
@@ -18,6 +21,7 @@ interface UserContextData {
   userData?: UserProfile
   isLoading: boolean
   isError: boolean
+  isSuccess: boolean
 }
 
 export const UserContext = createContext({} as UserContextData)
@@ -27,17 +31,22 @@ interface UserContextProviderProps {
 }
 
 export const UserContextProvider = ({ children }: UserContextProviderProps) => {
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError, isSuccess } = useQuery({
     queryKey: 'user-data',
     queryFn: async () => {
-      const response = await api.get<UserProfile>('/users/luiz504')
+      const response = await api.get<UserProfile>(`/users/${ownerName}`)
       return response.data
     },
   })
 
+  const contextValue: UserContextData = {
+    userData: data,
+    isLoading,
+    isError,
+    isSuccess,
+  }
+
   return (
-    <UserContext.Provider value={{ userData: data, isLoading, isError }}>
-      {children}
-    </UserContext.Provider>
+    <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
   )
 }

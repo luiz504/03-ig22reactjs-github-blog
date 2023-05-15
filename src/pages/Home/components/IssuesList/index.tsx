@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
-
 import { useIssuesContext } from '~/contexts/issues/useIssuesContext'
 import { IssueCard, IssueCardBody, IssuesContainer } from './styles'
 import remarkGfm from 'remark-gfm'
@@ -10,14 +8,22 @@ import dracula from 'react-syntax-highlighter/dist/esm/styles/prism/dracula'
 import { format, formatDistanceToNowStrict } from 'date-fns'
 import ReactMarkdown from 'react-markdown'
 import { useTheme } from 'styled-components'
+import { LoadingBoxPlaceholder } from '~/components/placeholders/LoadingBoxPlaceholder'
 
 export const IssuesList = () => {
-  const { issues } = useIssuesContext()
+  const { issues, isLoading, isSuccess, searchValue, isError, error } =
+    useIssuesContext()
   const theme = useTheme()
 
   const formatDate = (date: string | Date) => {
     return format(new Date(date), 'LLL dd yyyy HH:mm')
   }
+
+  const showNoResultFeedback =
+    !isLoading && isSuccess && !!searchValue && !issues?.length
+  const showErrorFeedback = !isLoading && isError
+  const showNoPostFound =
+    !isLoading && isSuccess && !searchValue && !issues?.length
 
   return (
     <IssuesContainer>
@@ -100,6 +106,24 @@ export const IssuesList = () => {
           </IssueCardBody>
         </IssueCard>
       ))}
+      {isLoading && <LoadingBoxPlaceholder className="card" />}
+
+      {showNoResultFeedback && (
+        <div>
+          No match found with <strong>&quot;{searchValue}&quot;</strong>
+        </div>
+      )}
+
+      {showNoPostFound && (
+        <div>
+          No Posts found, try to create a new Issue on this Repository and try
+          again.
+        </div>
+      )}
+
+      {showErrorFeedback && (
+        <div>{(error as any)?.message || 'Something went wrong'}</div>
+      )}
     </IssuesContainer>
   )
 }

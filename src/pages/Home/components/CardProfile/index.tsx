@@ -9,48 +9,75 @@ import {
 import { useUserContext } from '~/contexts/user/useUserContext'
 
 import { CardProfileContainer, InfoSection } from './styles'
+import { LoadingBoxPlaceholder } from '~/components/placeholders/LoadingBoxPlaceholder'
 
 export const CardProfile = () => {
-  const { userData } = useUserContext()
+  const { userData, isLoading, isSuccess } = useUserContext()
+
+  const showRealContent = !isLoading && isSuccess
 
   return (
     <CardProfileContainer>
       <div className="placeholder-thumb">
-        <img src={userData?.avatar_url} alt="" />
+        {showRealContent ? (
+          <img src={userData?.avatar_url} alt="" />
+        ) : (
+          <LoadingBoxPlaceholder className="img" />
+        )}
       </div>
       <InfoSection>
         <div className="row-title-redirect">
-          <strong>{userData?.name}</strong>
+          {showRealContent ? (
+            <>
+              <strong>{userData?.name}</strong>
 
-          <a href="https://github.com/luiz504" target="_blank" rel="noreferrer">
-            GITHUB <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-          </a>
+              <a
+                href="https://github.com/luiz504"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GITHUB <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+              </a>
+            </>
+          ) : (
+            <LoadingBoxPlaceholder className="row-title" />
+          )}
         </div>
 
-        <p>{userData?.bio}</p>
+        {showRealContent ? (
+          <p>{userData?.bio}</p>
+        ) : (
+          <LoadingBoxPlaceholder className="p" />
+        )}
 
         <ol className="row-more-info">
-          <li>
-            <FontAwesomeIcon icon={faGithub} /> <span>{userData?.login}</span>
-          </li>
-
-          {userData?.company && (
-            <li>
-              <FontAwesomeIcon icon={faBuilding} />
-              <span>{userData?.company}</span>
-            </li>
+          {showRealContent ? (
+            <>
+              {' '}
+              <li>
+                <FontAwesomeIcon icon={faGithub} />{' '}
+                <span>{userData?.login}</span>
+              </li>
+              {userData?.company && (
+                <li>
+                  <FontAwesomeIcon icon={faBuilding} />
+                  <span>{userData?.company}</span>
+                </li>
+              )}
+              <li>
+                <a
+                  href={`https://github.com/${userData?.login}?tab=followers`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FontAwesomeIcon icon={faUserGroup} />
+                  <span> {userData?.followers} followers</span>
+                </a>
+              </li>
+            </>
+          ) : (
+            <LoadingBoxPlaceholder className="li" />
           )}
-
-          <li>
-            <a
-              href={`https://github.com/${userData?.login}?tab=followers`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FontAwesomeIcon icon={faUserGroup} />
-              <span> {userData?.followers} followers</span>
-            </a>
-          </li>
         </ol>
       </InfoSection>
     </CardProfileContainer>

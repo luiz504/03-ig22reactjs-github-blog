@@ -6,7 +6,10 @@ export const CardProfileContainer = styled(SubHeaderBase)`
 
   gap: 2rem;
   display: flex;
-
+  max-width: 80rem;
+  @media (max-width: 1440px) {
+    max-width: 54rem;
+  }
   .placeholder-thumb {
     border-radius: 8px;
     width: 148px;

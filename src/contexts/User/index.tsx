@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 
 import { api } from '~/libs/api'
 
-import { ownerName } from '~/common'
+import { ownerName } from '~/setup'
 
 interface UserProfile {
   id: number

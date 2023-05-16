@@ -16,9 +16,11 @@ export const IssueBody = styled.section`
   padding: 2.5rem 2rem;
 
   color: ${({ theme }) => theme['base-text']};
+  line-height: 1.6;
 
   a {
     color: ${({ theme }) => theme.blue};
+    text-decoration: none;
   }
   ul,
   ol {
@@ -27,5 +29,28 @@ export const IssueBody = styled.section`
   }
   div {
     ${scrollbarDark}
+  }
+
+  p,
+  blockquote,
+  ul,
+  ol,
+  dl,
+  table,
+  pre,
+  details {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    line-height: 1.25;
   }
 `

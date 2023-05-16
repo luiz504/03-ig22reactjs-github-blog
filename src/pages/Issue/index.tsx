@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
+import ReactMarkdown from 'react-markdown'
 import { useQuery } from 'react-query'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
@@ -13,7 +13,7 @@ import { ContainerIssue, IssueBody } from './styles'
 
 import { api } from '~/libs/api'
 
-import { ownerName, repoName } from '~/common'
+import { ownerName, repoName } from '~/setup'
 import { useTheme } from 'styled-components'
 
 export interface IssueType {
@@ -66,8 +66,9 @@ export const Issue = () => {
                       {children}
                     </a>
                   ),
-                  code: ({ node, className, children, ...props }) => {
+                  code: ({ node, inline, className, children, ...props }) => {
                     const match = /language-(\w+)/.exec(className || '')
+
                     return (
                       <SyntaxHighlighter
                         {...props}
@@ -77,19 +78,6 @@ export const Issue = () => {
                         PreTag="div"
                       >
                         {String(children).replace(/\n$/, '')}
-                      </SyntaxHighlighter>
-                    )
-                  },
-                  pre: ({ node, className, children, ...props }) => {
-                    return (
-                      <SyntaxHighlighter
-                        {...props}
-                        style={dracula}
-                        customStyle={{ background: theme?.['base-post'] }}
-                        language={'js'}
-                        PreTag="div"
-                      >
-                        {children.toString()}
                       </SyntaxHighlighter>
                     )
                   },

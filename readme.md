@@ -20,3 +20,7 @@ To complete this challenge, you will need to make some preparations and mainly c
 pnpn install
 pnpn run dev
 ```
+
+To change the orwer / repository you should change the variables at:
+
+`root/src/setups.ts`

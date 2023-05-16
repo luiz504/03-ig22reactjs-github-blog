@@ -1,4 +1,5 @@
 import { ContainerCardIssueResume } from './styles'
+import { format, formatDistanceToNowStrict } from 'date-fns'
 import { Link } from 'react-router-dom'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,13 +9,13 @@ import {
   faChevronLeft,
   faComment,
 } from '@fortawesome/free-solid-svg-icons'
-
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import type { IssueType } from '../..'
-import { LoadingBoxPlaceholder } from '~/components/placeholders/LoadingBoxPlaceholder'
-import { format, formatDistanceToNowStrict } from 'date-fns'
-import { ownerName, repoName } from '~/common'
 
+import { LoadingBoxPlaceholder } from '~/components/placeholders/LoadingBoxPlaceholder'
+
+import { ownerName, repoName } from '~/setup'
+
+import type { IssueType } from '../..'
 interface CardIssueResumeProps {
   issueData?: IssueType
   isLoading: boolean

@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 
 import { api } from '~/libs/api'
 import { useUserContext } from '../user/useUserContext'
-import { ownerName, repoName } from '~/common'
+import { ownerName, repoName } from '~/setup'
 
 type Issue = {
   id: string | number
